@@ -1,0 +1,44 @@
+GET http://localhost:3008/api HTTP/1.1
+###
+GET https://localhost:3008/api HTTP/1.1
+###
+GET https://localhost:3008/api/posts HTTP/1.1
+###
+POST https://localhost:3008/api/posts HTTP/1.1
+content-type: application/json
+
+{
+    "id": "4",
+    "name": "Pear"
+}
+###
+DELETE https://localhost:3008/api/posts/6523f2e9ff6c71aeac45cdd6 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJ1c2VyaWQiOiI2NTFiMWMwYzAyZDEwNDZiZmQxYmY1MmMiLCJpYXQiOjE2OTY4NTQxNjAsImV4cCI6MTY5Njg1Nzc2MH0.VReUytlgWLs_1w7Ta0t-cyeAT6tsmYhVZKjQvgkfiyU
+
+###
+POST https://localhost:3008/api/users/signup HTTP/1.1
+content-type: application/json
+
+{
+    "username": "test2",
+    "password": "youwillneverguess"
+}
+###
+POST https://localhost:3008/api/users/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "test",
+    "password": "youwillneverguess"
+}
+###
+POST https://localhost:3008/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJ1c2VyaWQiOiI2NTFiMWMwYzAyZDEwNDZiZmQxYmY1MmMiLCJpYXQiOjE2OTY4NTQxNjAsImV4cCI6MTY5Njg1Nzc2MH0.VReUytlgWLs_1w7Ta0t-cyeAT6tsmYhVZKjQvgkfiyU
+
+{
+  "id": "6",
+  "name": "Games"
+}
+
+###
