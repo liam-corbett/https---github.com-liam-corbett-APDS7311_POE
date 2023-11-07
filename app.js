@@ -12,6 +12,8 @@ const connstring = 'mongodb+srv://LEE:c4Cr6aElbAb0Kr4v@cluster0.hqazew5.mongodb.
 
 const postRoutes = require("./routes/post");
 const userRoutes = require("./routes/user");
+const helmet = require('helmet');
+const morgan = require('morgan');
 
 mongoose.connect(connstring)
 .then(()=>
@@ -24,6 +26,9 @@ mongoose.connect(connstring)
 },options);
 
 app.use(express.json())
+
+app.use(helmet());
+app.use(morgan('dev'));
 
 
 app.use((reg,res,next)=> 

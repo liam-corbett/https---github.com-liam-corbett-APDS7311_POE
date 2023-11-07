@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require('../modules/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
+const bruteforce = require('../bruteforce');
+
 
 
 router.post('/signup', (req, res)=>{
@@ -29,7 +31,7 @@ router.post('/signup', (req, res)=>{
 
 
 
-router.post('/login', (req, res) => {
+router.post('/login', bruteforce.prevent, (req, res) => {
     let fetchedUser;
     User.findOne({ username: req.body.username })
         .then(user => {
